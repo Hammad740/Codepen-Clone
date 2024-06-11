@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-
+import img from './codepen_logo.png';
+import './index.css';
 const App = () => {
   const [html, setHtml] = useState('');
   const [css, setCss] = useState('');
@@ -25,9 +26,14 @@ const App = () => {
   }, [html, css, js]);
   return (
     <div className="wrapper">
-      <div className="header"></div>
-      <div className="input">
+      <div className="header">
+        <img src={img} alt="logo" />
+        <span>Codepen</span>
+      </div>
+
+      <div className="input-cover">
         <textarea
+          className="input"
           value={html}
           placeholder="Html"
           onChange={(e) => {
@@ -35,6 +41,7 @@ const App = () => {
           }}
         ></textarea>
         <textarea
+          className="input"
           value={css}
           placeholder="Css"
           onChange={(e) => {
@@ -42,6 +49,7 @@ const App = () => {
           }}
         ></textarea>
         <textarea
+          className="input"
           value={js}
           placeholder="Js"
           onChange={(e) => {
@@ -49,6 +57,7 @@ const App = () => {
           }}
         ></textarea>
       </div>
+
       <div className="output">
         <iframe
           srcDoc={codePenCode}
